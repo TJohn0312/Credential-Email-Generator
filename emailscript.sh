@@ -1,15 +1,20 @@
 #!/bin/bash
-
 # Check for Inputs
-firstName='[First Name]'
-emailAddress='[Email Address]'
+# firstName='[First Name]'
+# emailAddress='[Email Address]'
+
 # If theres an input assign to var
-if [[ -n $1 ]]; then
-	firstName=$1
-fi
-if [[ -n $2 ]]; then
-	emailAddress=$2
-fi
+# if [[ -n $1 ]]; then
+# 	firstName=$1
+# fi
+# if [[ -n $2 ]]; then
+# 	emailAddress=$2
+# fi
+
+echo First Name:
+read firstName
+echo Email:
+read emailAddress
 
 # Generate password
 unformattedPassword=$(python3 passwdgen.py)
@@ -954,5 +959,6 @@ mso-ligatures:none'><o:p>&nbsp;</o:p></span></p>
 
 # output content into filename with emailadress and remove the .com from the end
 echo "$output" > ./"${emailAddress::-4}".html
+ls ./"${emailAddress::-4}".html
 # copy password to clipboard
 echo $password | clip.exe
